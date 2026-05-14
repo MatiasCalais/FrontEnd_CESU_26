@@ -1,22 +1,28 @@
-const Fº = document.getElementById('fahInput');
-const Cº = document.getElementById('CelInput');
-const ConvertBunton = document.getElementById('convert');
+const Fah = document.getElementById('fahInput');
+const Cel = document.getElementById('CelInput');
+
+;
 
 
-ConvertBunton.addEventListener('click',function(){
+Cel.addEventListener('input',function(){
+  if(Cel.value === ""){
+    Fah.value ="";
+    return 0;    
+  }
+ let c = parseFloat(Cel.value);
+   let f = (c * 9 / 5) + 32;
   
+  Fah.value = f.toFixed(2);
+});
+
+
+Fah.addEventListener('input',function(){
+  if(Fah.value === ""){
+    Cel.value ="";
+    return 0;    
+  }
+ let f = parseFloat(Fah.value);
+   let c = (f - 32) * 5/9;
   
-  let F1º = Number(Fº.value);
-  let C1º = Number(Cº.value);
-  
-  
-  let Cov = F1º * 2;
-  
-    
-  
-  Cº.value = Cov
-  
-  
-  
-  
+  Cel.value = c.toFixed(2);
 });
